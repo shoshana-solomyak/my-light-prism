@@ -1,0 +1,6 @@
+packages:
+    - "main-server"
+    - "chatbot-server"
+    - "scripts"
+    - "clients/*"
+    - "internal/*"

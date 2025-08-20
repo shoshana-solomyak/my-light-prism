@@ -1,0 +1,41 @@
+{
+    "name": "client-application-forms",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite --port 5173",
+        "e2e": "vite  --port 5173",
+        "ts:check": "tsc --noEmit",
+        "build": "vite build",
+        "lint": "eslint .",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@hilma/auth-client": "^2.0.0",
+        "@hilma/forms": "^3.1.1",
+        "@hilma/i18n": "^0.4.0",
+        "@hilma/tools": "^1.1.0",
+        "@internal/constants": "workspace:*",
+        "@internal/survey-ui": "workspace:*",
+        "@internal/types": "workspace:*",
+        "@mui/material": "^6.4.1",
+        "@mui/x-date-pickers": "^7.22.1",
+        "@tanstack/react-query": "^5.64.0",
+        "axios": "^1.7.9",
+        "dayjs": "^1.11.13",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-router-dom": "^7.1.1",
+        "yup": "^1.6.1"
+    },
+    "devDependencies": {
+        "@types/react": "^18.3.4",
+        "@types/react-dom": "^18.3.0",
+        "@vitejs/plugin-react": "^4.3.1",
+        "sass": "^1.84.0",
+        "typescript": "^5.5.4",
+        "vite": "^5.4.12",
+        "vite-tsconfig-paths": "^5.1.4"
+    }
+}

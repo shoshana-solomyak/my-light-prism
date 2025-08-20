@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "composite": true,
+        "target": "esnext",
+        "rootDir": ".",
+        "moduleResolution": "bundler",
+        "module": "ES2015",
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "skipLibCheck": true
+    }
+}

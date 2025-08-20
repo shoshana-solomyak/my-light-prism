@@ -1,0 +1,32 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "ui": "tui",
+    "tasks": {
+        "ts:check": {},
+        "build": {
+            "outputs": ["dist"],
+            "dependsOn": ["ts:check", "^build"]
+        },
+        "test": {},
+        "lint": {},
+        "check": {},
+        "//#stylelint": {},
+        "//#ls-lint": {},
+        "//#yaml-lint": {},
+        "//#fmt:check": {},
+        "//#spell": {},
+        "//#test": {},
+        "//#knip": {},
+        "dev": {
+            "dependsOn": ["^build"],
+            "cache": false,
+            "persistent": true
+        },
+        "e2e": {
+            "dependsOn": ["^build"],
+            "cache": false,
+            "persistent": true,
+            "passThroughEnv": ["MONGO_DB_HOST"]
+        }
+    }
+}

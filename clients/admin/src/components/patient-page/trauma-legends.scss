@@ -1,0 +1,29 @@
+@use "../../style/colors.scss";
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6em;
+    border-radius: 5px;
+    background-color: colors.$legends-background;
+    padding: 1.4em 1em;
+
+    .option {
+        display: flex;
+        flex: 1 1 calc(25% - 0.6em);
+        align-items: center;
+        max-width: calc(25% - 0.6em);
+
+        .circle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0.4em;
+            margin-left: 0.5em;
+            border-radius: 50%;
+            background-color: white;
+            min-width: 2.5em;
+            height: 2.5em;
+        }
+    }
+}

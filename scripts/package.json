@@ -1,0 +1,15 @@
+{
+    "name": "scripts",
+    "version": "0.0.0",
+    "description": "Scripts for the `hilma-template` package.",
+    "type": "module",
+    "scripts": {},
+    "keywords": [],
+    "author": "ej-shafran",
+    "dependencies": {
+        "axios": "^1.7.7",
+        "chalk": "^5.3.0",
+        "inquirer": "^12.1.0",
+        "command-exists": "^1.2.9"
+    }
+}

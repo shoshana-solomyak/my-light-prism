@@ -1,0 +1,47 @@
+name: Review Labels
+
+on:
+    pull_request:
+        types: [review_requested]
+    pull_request_review:
+        types: [submitted]
+
+jobs:
+    review_label:
+        runs-on: self-hosted
+        steps:
+            - name: Add awaiting review label
+              if:
+                  github.event_name == 'pull_request' && github.event.action ==
+                  'review_requested'
+              uses: actions-ecosystem/action-add-labels@v1
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  labels: "🕙 awaiting review"
+
+            - name: Add reviewed label
+              if: |
+                  github.event_name == 'pull_request_review' &&
+                  contains(fromJson('["approved", "changes_requested", "commented"]'), github.event.review.state)
+              uses: actions-ecosystem/action-add-labels@v1
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  labels: "📄 reviewed"
+
+            - name: Remove awaiting review label
+              if: |
+                  github.event_name == 'pull_request_review' &&
+                  contains(fromJson('["approved", "changes_requested", "commented"]'), github.event.review.state)
+              uses: actions-ecosystem/action-remove-labels@v1
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  labels: "🕙 awaiting review"
+
+            - name: Add awaiting review label
+              if:
+                  github.event_name == 'pull_request' && github.event.action ==
+                  'review_requested'
+              uses: actions-ecosystem/action-remove-labels@v1
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  labels: "📄 reviewed"

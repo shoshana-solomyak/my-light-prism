@@ -1,0 +1,122 @@
+@use "../../style/colors" as colors;
+
+.login-page {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+
+    .login-card {
+        width: 44.58vw;
+    }
+}
+
+.login-container {
+    display: flex;
+    margin: 2vw 0 2vw 2vw;
+    background-color: colors.$white;
+    padding: 2vw;
+    height: 92.59vh;
+
+    .title-container {
+        margin-bottom: 5vh;
+
+        .login-title {
+            font-weight: 900;
+            font-size: 2.8rem;
+            text-align: start;
+        }
+    }
+
+    .form-submit-button {
+        margin-top: 1.85vh;
+        box-shadow: none;
+        border-radius: 10px;
+        background-color: colors.$light-blue;
+        padding: 0.7rem;
+        padding-inline: 1.4rem;
+    }
+
+    .login-inner-container {
+        margin-top: 10vh;
+        margin-right: 4.25vw;
+
+        .Form-textInput {
+            margin-top: 1.67vh;
+            margin-bottom: 0.7vh;
+            border-radius: 10px;
+            width: 16.25vw;
+        }
+    }
+
+    .code-message-text {
+        margin-bottom: 2vh;
+    }
+}
+
+.title-card {
+    display: flex;
+    flex-direction: column;
+    background-image: url("/images/login-background-illustration.png");
+    background-position: bottom;
+    background-size: 38vw;
+    background-repeat: no-repeat;
+    padding: 2vw;
+    width: 55vw;
+
+    .rays-of-light-title {
+        display: flex;
+        align-self: center;
+        margin-top: 30vh;
+
+        .rays-of-light-logo {
+            width: 20vw;
+        }
+    }
+}
+
+.fade-in {
+    animation: fade-in-animation ease-in-out 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.slide-down {
+    animation: slide-down-animation ease-in-out 0.4s;
+    animation-fill-mode: forwards;
+    margin-top: -5vh;
+}
+
+.slide-up {
+    animation: slide-up-animation ease-in-out 0.4s;
+    animation-fill-mode: forwards;
+    margin-top: 12vh;
+}
+
+@keyframes fade-in-animation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-down-animation {
+    0% {
+        margin-top: -5vh;
+    }
+
+    100% {
+        margin-top: 0;
+    }
+}
+
+@keyframes slide-up-animation {
+    0% {
+        margin-top: 12vh;
+    }
+
+    100% {
+        margin-top: 0;
+    }
+}

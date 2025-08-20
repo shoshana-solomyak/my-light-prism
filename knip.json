@@ -1,0 +1,27 @@
+{
+    "$schema": "https://unpkg.com/knip@5/schema.json",
+    "rules": {
+        "exports": "off",
+        "types": "off"
+    },
+    "workspaces": {
+        "clients/*": {
+            "entry": ["src/main.tsx"],
+            "project": ["src/**/*.{ts,tsx}"]
+        },
+        "main-server": {
+            "entry": ["src/main.ts"],
+            "project": ["src/**/*.ts", "test/**/*.ts"]
+        },
+        "chatbot-server": {
+            "entry": ["src/main.ts"],
+            "project": ["src/**/*.ts", "test/**/*.ts"]
+        },
+        "internal/*": {
+            "entry": ["src/index.ts"],
+            "project": ["src/**/*.ts"]
+        }
+    },
+    "ignoreWorkspaces": ["scripts"],
+    "ignore": []
+}

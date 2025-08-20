@@ -1,0 +1,126 @@
+name: CI
+
+on:
+    push:
+        branches:
+            - "development"
+    pull_request:
+        types:
+            - "opened"
+            - "synchronize"
+
+concurrency:
+    group:
+        ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    up_to_date:
+        name: "Up to Date"
+        runs-on: self-hosted
+        outputs:
+            updated: ${{ steps.check.outputs.updated }}
+        steps:
+            - name: Check if Up to Date
+              id: check
+              run: |
+                  BASE_BRANCH="${{ github.event.pull_request.base.ref }}"
+                  PR_SHA="${{ github.event.pull_request.head.sha }}"
+
+                  BASE_SHA=$(curl -s "https://api.github.com/repos/${{ github.repository }}/commits/${BASE_BRANCH}" | jq -r '.sha')
+
+                  if [ "$BASE_SHA" == "$PR_SHA" ]; then
+                    echo "updated=1" >> $GITHUB_OUTPUT
+                  else
+                    echo "updated=0" >> $GITHUB_OUTPUT
+                  fi
+
+    lints:
+        name: "Lints"
+        runs-on: "self-hosted"
+        needs: "up_to_date"
+        if: ${{needs.up_to_date.outputs.updated}}
+
+        steps:
+            - name: "Checkout"
+              uses: "actions/checkout@v4"
+
+            - name: "Turbo Cache"
+              uses: "actions/cache@v4"
+              with:
+                  path: ".turbo"
+                  key: "${{ runner.os }}-turbo-${{ github.sha }}"
+                  restore-keys: "${{ runner.os }}-turbo-"
+
+            - name: "Setup NodeJS"
+              uses: "actions/setup-node@v4"
+              with:
+                  node-version-file: .nvmrc
+
+            - name: "Setup PNPM"
+              uses: "pnpm/action-setup@v3"
+              with:
+                  run_install: false
+                  dest: "${{ runner.temp }}/.pnpm"
+
+            - name: "Install Dependencies"
+              env:
+                  CYPRESS_INSTALL_BINARY: 0
+              run: "pnpm install"
+
+            - name: "Turbo Pipeline"
+              run: "pnpm run pipeline --cache-dir=.turbo"
+
+    tests:
+        name: "Tests"
+        runs-on: "self-hosted"
+        container: "cypress/base:latest"
+        needs: "up_to_date"
+        if: ${{needs.up_to_date.outputs.updated}}
+        services:
+            mongodb:
+                image: mongo:4.4 #! Using this version because simba can't run newer ones
+                options: >-
+                    --health-cmd "echo \"db.runCommand('ping').ok\" | mongo --quiet"
+                    --health-interval 10s  --health-timeout 5s  --health-retries 3
+        steps:
+            - name: "Checkout"
+              uses: "actions/checkout@v4"
+
+            - name: "Turbo Cache"
+              uses: "actions/cache@v4"
+              with:
+                  path: "/.turbo"
+                  key: "${{ runner.os }}-turbo-${{ github.sha }}"
+                  restore-keys: "${{ runner.os }}-turbo-"
+
+            - name: "Setup NodeJS"
+              uses: "actions/setup-node@v4"
+              with:
+                  node-version-file: .nvmrc
+
+            - name: "Setup PNPM"
+              uses: "pnpm/action-setup@v3"
+              with:
+                  run_install: false
+                  dest: "${{ runner.temp }}/.pnpm"
+
+            - name: "Install Dependencies"
+              run: "pnpm install"
+
+            - name: "Install Cypress Binary"
+              run: "pnpm cypress install"
+
+            - name: "Unit Tests"
+              run: "pnpm test"
+
+            - name: "End-to-End Tests"
+              uses: "cypress-io/github-action@v6"
+              env:
+                  MONGO_DB_HOST: mongodb
+              with:
+                  install: false
+                  wait-on: "http://127.0.0.1:8080/api/health"
+                  wait-on-timeout: 120
+                  start: |
+                      pnpm turbo run e2e --cache-dir=/.turbo

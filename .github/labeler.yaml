@@ -1,0 +1,27 @@
+"admin":
+    - any:
+          [
+              "clients/admin/**",
+              "main-server/**",
+              "!main-server/package.json",
+              "!main-server/src/survey-handler/**",
+              "!main-server/src/survey-schema/**",
+              "!main-server/src/constants/survey-jsons.constant.ts",
+              "!clients/admin/package.json",
+          ]
+
+"survey":
+    - any:
+          [
+              "internal/constants/src/survey-ids.constant.ts",
+              "internal/survey-ui/**",
+              "clients/application-forms/**",
+              "main-server/src/survey-handler/**",
+              "main-server/src/survey-schema/**",
+              "main-server/src/constants/survey-jsons.constant.ts",
+              "!clients/application-forms/package.json",
+          ]
+
+"whatsApp":
+    - any: ["chatbot-server/**", "!chatbot-server/package.json"]
+# Algorithm files are not in development yet, need to add that later

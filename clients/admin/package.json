@@ -1,0 +1,43 @@
+{
+    "name": "client-admin",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite --port 5174",
+        "e2e": "vite --port 5174",
+        "build": "tsc && vite build",
+        "lint": "eslint .",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.14.0",
+        "@emotion/styled": "^11.14.0",
+        "@hilma/auth-client": "^2.0.0",
+        "@hilma/forms": "^3.1.1",
+        "@hilma/i18n": "^0.4.0",
+        "@hilma/tools": "^1.1.0",
+        "@internal/constants": "workspace:*",
+        "@internal/ui": "workspace:*",
+        "@internal/survey-ui": "workspace:*",
+        "@mui/icons-material": "^6.4.4",
+        "@mui/material": "^6.4.3",
+        "@tanstack/react-query": "^5.64.2",
+        "axios": "^1.7.9",
+        "clsx": "^2.1.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^7.1.3",
+        "yup": "^1.6.1"
+    },
+    "devDependencies": {
+        "@internal/types": "workspace:*",
+        "@types/react": "^18.3.4",
+        "@types/react-dom": "^18.3.0",
+        "@vitejs/plugin-react": "^4.3.4",
+        "sass": "^1.84.0",
+        "typescript": "^5.7.3",
+        "vite": "^5.4.12",
+        "vite-tsconfig-paths": "^5.1.4"
+    }
+}

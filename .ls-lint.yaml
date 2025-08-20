@@ -1,0 +1,43 @@
+ls:
+    .dir: kebab-case | regex:\..+
+
+    .config.js: kebab-case
+    .js: kebab-case
+    .scss: kebab-case
+    .ts: kebab-case
+    .d.ts: kebab-case
+    .interface.ts: kebab-case
+    .function.ts: kebab-case
+    .enum.ts: kebab-case
+    .config.ts: kebab-case
+    .constant.ts: kebab-case
+    .regex.constant.ts: kebab-case
+    .text.ts: kebab-case
+    .cy.ts: kebab-case
+    .tsx: PascalCase | regex:main
+    .hook.tsx: regex:use-[-a-z0-9]+
+    .test.ts: kebab-case
+    .workspace.ts: kebab-case
+
+    "{main-server/src,main-server/src/*,chatbot-server/src,chatbot-server/src/*}":
+        .dto.ts: kebab-case
+        .controller.ts: kebab-case
+        .service.ts: kebab-case
+        .data-service.ts: kebab-case
+        .module.ts: kebab-case
+        .entity.ts: kebab-case
+        .schema.ts: kebab-case
+
+ignore:
+    - ".husky"
+    - ".git"
+    - "node_modules"
+    - "{internal,clients}/*/node_modules"
+    - "{main-server,scripts,chatbot-server}/node_modules"
+    - "{internal,clients}/*/dist"
+    - "{main-server,scripts,chatbot-server}/dist"
+    - ".turbo"
+    - "{internal,clients}/*/.turbo"
+    - "{main-server,scripts,chatbot-server}/.turbo"
+    - "clients/*/{android,ios}"
+    - ".eslintrc.js"

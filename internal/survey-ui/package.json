@@ -1,0 +1,34 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "name": "@internal/survey-ui",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc -w",
+        "lint": "eslint ."
+    },
+    "exports": {
+        ".": {
+            "types": "./src/SurveyComponent.tsx",
+            "default": "./dist/SurveyComponent.js"
+        }
+    },
+    "devDependencies": {
+        "@types/react": "^18.3.4",
+        "typescript": "^5.5.4",
+        "@internal/types": "workspace:*"
+    },
+    "peerDependencies": {
+        "@internal/constants": "workspace:*",
+        "@hilma/forms": "^3.1.1",
+        "@tanstack/react-query": "^5.64.0",
+        "axios": "^1.7.7",
+        "react": "^18.2.0"
+    },
+    "dependencies": {
+        "survey-core": "^1.12.22",
+        "survey-react-ui": "^1.12.22"
+    }
+}

@@ -1,0 +1,3 @@
+export const REFRESH_COOKIE_NAME = "Z6Y2ySVO0U";
+export const JWT_COOKIE_NAME = "NIoy0NLlNME";
+export const TWO_FACTOR_COOKIE_NAME = "NAT13A4";

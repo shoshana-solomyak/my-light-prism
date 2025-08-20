@@ -1,0 +1,16 @@
+{
+    "extends": "stylelint-config-standard-scss",
+    "plugins": ["stylelint-magic-numbers"],
+    "rules": {
+        "magic-numbers/magic-colors": [true],
+        "declaration-no-important": true,
+        "max-nesting-depth": [2, { "ignore": ["pseudo-classes"] }],
+        "length-zero-no-unit": true,
+        "selector-class-pattern": [
+            "^[-a-z]+$|^Mui.+$|^Form.+",
+            {
+                "message": "should be kebab-case or a special (MUI or Forms) class name"
+            }
+        ]
+    }
+}

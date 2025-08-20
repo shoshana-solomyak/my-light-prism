@@ -1,0 +1,29 @@
+{
+    "$schema": "https://json.schemastore.org/package.json",
+    "name": "@internal/ui",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "build": "tsc && vite build",
+        "lint": "eslint ."
+    },
+    "exports": {
+        ".": {
+            "types": "./src/index.ts",
+            "default": "./dist/index.js"
+        }
+    },
+    "devDependencies": {
+        "@vitejs/plugin-react": "^4.3.4",
+        "typescript": "^5.5.4",
+        "vite": "^5.4.12",
+        "vite-tsconfig-paths": "^5.1.4"
+    },
+    "peerDependencies": {
+        "@mui/material": "^6.4.1",
+        "@types/react": "^18.3.4",
+        "react": "^18.2.0",
+        "react-router-dom": "^7.1.3"
+    }
+}

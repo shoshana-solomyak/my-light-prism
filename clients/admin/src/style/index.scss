@@ -1,0 +1,51 @@
+@use "./colors";
+@use "./fonts.scss";
+
+:root {
+    font-weight: 400;
+    text-size-adjust: 100%;
+    background-color: colors.$background;
+    font-family: Assistant, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    &,
+    &::after,
+    &::before {
+        box-sizing: border-box;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+// TODO: find out how to change in survey theme
+.sd-body.sd-body--responsive {
+    padding: 0;
+}
