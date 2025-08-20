@@ -35,6 +35,6 @@
         "@types/supertest": "^6.0.2",
         "supertest": "^7.0.0",
         "typescript": "^5.5.4",
-        "unplugin-swc": "^1.5.1"
+        "unplugin-swc": "^1.5.6"
     }
 }
