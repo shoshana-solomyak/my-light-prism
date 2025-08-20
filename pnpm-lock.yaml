@@ -349,11 +349,11 @@ importers:
         specifier: ^18.2.0
         version: 18.3.1
       survey-core:
-        specifier: ^1.12.22
-        version: 1.12.23
+        specifier: ^2.3.3
+        version: 2.3.3
       survey-react-ui:
         specifier: ^1.12.22
-        version: 1.12.23(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(survey-core@1.12.23)
+        version: 1.12.23(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(survey-core@2.3.3)
     devDependencies:
       '@internal/types':
         specifier: workspace:*
@@ -1308,6 +1308,7 @@ packages:
   '@faker-js/faker@9.5.0':
     resolution: {integrity: sha512-3qbjLv+fzuuCg3umxc9/7YjrEXNaKwHgmig949nfyaTx8eL4FAsvFbu+1JcFUj1YAXofhaDn6JdEUBTYuk0Ssw==}
     engines: {node: '>=18.0.0', npm: '>=9.0.0'}
+    deprecated: Please update to a newer version
 
   '@hilma/auth-client@2.0.0':
     resolution: {integrity: sha512-mRbECZwRtSDwjtYqa5zIirntGCpQTLssRXHTBUpxqabaV+VMrb/5n/NsN6f8HKAq8ljeBnttOMi22xDTECgBzw==}
@@ -1355,6 +1356,7 @@ packages:
   '@hilma/i18n@0.4.0':
     resolution: {integrity: sha512-2QFo6BQcGdiD3rpHWUf2xQTrwaCdOqrxHtzw6kIXDgZzy9bpqkQK/oBfWC0aCuWoVjkL5mq9NkugIkrAFdSIDA==}
     engines: {node: '>=10'}
+    deprecated: This package is no longer maintained. For new projects, we recommend using a community-maintained alternative like i18next.
     peerDependencies:
       react: '>=16'
 
@@ -2652,6 +2654,7 @@ packages:
   bson@6.10.2:
     resolution: {integrity: sha512-5afhLTjqDSA3akH56E+/2J6kTDuSIlBxyXPdQslj9hcIgOUE378xdOfZvC/9q3LifJNI6KR/juZ+d0NRNYBwXg==}
     engines: {node: '>=16.20.1'}
+    deprecated: a critical bug affecting only useBigInt64=true deserialization usage is fixed in bson@6.10.3
 
   buffer-crc32@0.2.13:
     resolution: {integrity: sha512-VO9Ht/+p3SN7SKWqcrgEzjGbRSJYTx+Q1pTQC0wrWqHx0vpJraQ6GtHx8tvcg1rlK1byhU5gccxgOgj7B0TDkQ==}
@@ -4478,6 +4481,7 @@ packages:
   multer@1.4.4-lts.1:
     resolution: {integrity: sha512-WeSGziVj6+Z2/MwQo3GvqzgR+9Uc+qt8SwHKh3gvNPiISKfsMfG4SvCOFYlxxgkXt7yIV2i1yczehm0EOKIxIg==}
     engines: {node: '>= 6.0.0'}
+    deprecated: Multer 1.x is impacted by a number of vulnerabilities, which have been patched in 2.x. You should upgrade to the latest 2.x version.
 
   mustache@4.2.0:
     resolution: {integrity: sha512-71ippSywq5Yb7/tVYyGbkBggbU8H3u5Rz56fH60jGFgr8uHwxs+aSKeqmluIVzM0m0kB7xQjKS6qPfd0b2ZoqQ==}
@@ -5208,6 +5212,7 @@ packages:
   source-map@0.8.0-beta.0:
     resolution: {integrity: sha512-2ymg6oRBpebeZi9UUNsgQ89bhx01TcTkmNTGnNO88imTmbSgy4nfujrgVEFKWpMTEGA11EDkTt7mqObTPdigIA==}
     engines: {node: '>= 8'}
+    deprecated: The work that was done in this beta branch won't be included in future versions
 
   sparse-bitfield@3.0.3:
     resolution: {integrity: sha512-kvzhi7vqKTfkh0PZU+2D2PIllw2ymqJKujUcyPMd9Y75Nv4nPbGJZXNhxsgdQab2BmlDct1YnfQCguEvHr7VsQ==}
@@ -5379,10 +5384,12 @@ packages:
   superagent@9.0.2:
     resolution: {integrity: sha512-xuW7dzkUpcJq7QnhOsnNUgtYp3xRwpt2F7abdRYIpCsAt0hhUqia0EdxyXZQQpNmGtsCzYHryaKSV3q3GJnq7w==}
     engines: {node: '>=14.18.0'}
+    deprecated: Please upgrade to superagent v10.2.2+, see release notes at https://github.com/forwardemail/superagent/releases/tag/v10.2.2 - maintenance is supported by Forward Email @ https://forwardemail.net
 
   supertest@7.0.0:
     resolution: {integrity: sha512-qlsr7fIC0lSddmA3tzojvzubYxvlGtzumcdHgPwbFWMISQwL22MhM2Y3LNt+6w9Yyx7559VW5ab70dgphm8qQA==}
     engines: {node: '>=14.18.0'}
+    deprecated: Please upgrade to supertest v7.1.3+, see release notes at https://github.com/forwardemail/supertest/releases/tag/v7.1.3 - maintenance is supported by Forward Email @ https://forwardemail.net
 
   supports-color@7.2.0:
     resolution: {integrity: sha512-qpCAvRl9stuOHveKsn7HncJRvv501qIacKzQlO/+Lwxc9+0q2wLyv4Dfvt80/DPn2pqOBsJdDiogXGR9+OvwRw==}
@@ -5400,8 +5407,8 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  survey-core@1.12.23:
-    resolution: {integrity: sha512-/ZKLF+6xlVLyna4c4N3xWyrYRIlfT43C3ZjScrU/36QY5abpvLyEalHGMxu2rKcBNj1vyw5BwGccYf5DWs5RhQ==}
+  survey-core@2.3.3:
+    resolution: {integrity: sha512-RrmESu4LPpyFPCAScwTT5ujKrk/CN9icGABjDA16MYxrbqbs2V/sCy7FjL9f2F/O6EJwmUesNt+rc1IFp2aBBw==}
 
   survey-react-ui@1.12.23:
     resolution: {integrity: sha512-6J9SSFFlYp6N/IX8h5IB6uRhIBERCFiqtVNK2ItZdkRE9zep5ANbsIUlRbJD89pEFyn+6o3zqrgs8AXBIEPB3A==}
@@ -11287,13 +11294,13 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  survey-core@1.12.23: {}
+  survey-core@2.3.3: {}
 
-  survey-react-ui@1.12.23(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(survey-core@1.12.23):
+  survey-react-ui@1.12.23(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(survey-core@2.3.3):
     dependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      survey-core: 1.12.23
+      survey-core: 2.3.3
 
   svg-tags@1.0.0: {}
 
